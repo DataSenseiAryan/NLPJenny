@@ -60,6 +60,7 @@ def main():
     st.sidebar.markdown("""  [Github](https://github/aryanc55)""") #change all thses three to  to iamge
     st.sidebar.markdown("""  [Twitter](https://github/aryanc55)""")
     st.sidebar.markdown("""  [Instagram](https://github/aryanc55)""")
+    st.sidebar.markdown("""  [Medium](https://github/aryanc55)""")
 
 
 
