@@ -8,6 +8,20 @@ verify_ssl = true
 [packages]
 streamlit = "*"
 requests = "*"
+regex = "*"
+spacy = "*"
+nltk = "*"
+gensim = "*"
+textblob = "*"
+numpy = "*"
+corpora = "*"
+bingtranslator = "*"
+googletrans = "*"
+google-cloud = "*"
+google-cloud-translate = "==2.0.1"
+sumy = "*"
+ibm-watson = ">=4.5.0"
+awesome-streamlit = "*"
 
 [requires]
 python_version = "3.6"
