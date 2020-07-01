@@ -1,5 +1,6 @@
 """Main module for the streamlit NLPJenny app"""
 import streamlit as st
+import awesome_streamlit as ast 
 
 
 import pages.home
@@ -23,20 +24,26 @@ PAGES = {
 
 def main():
     st.sidebar.title("Navigation")
-    selection = st.sidebar.radio("Go to", list(PAGES.keys()))
+    page = st.sidebar.radio("Go to", list(PAGES.keys()))
 
-    page = PAGES[selection]
+    #page = PAGES[selection]
+
+
+    #page = st.sidebar.selectbox("Select your page", tuple(pages.keys()))
+    
+    PAGES[page].main()
+
 
     #with st.spinner(f"Loading {selection} ..."):
         #ast.shared.components.write_page(page)
-    # st.sidebar.title("Contribute")
-    # st.sidebar.info(
-    #     "This an open source project and you are very welcome to **contribute** your awesome "
-    #     "comments, questions, resources and apps as "
-    #     "[issues](https://github.com/MarcSkovMadsen/awesome-streamlit/issues) of or "
-    #     "[pull requests](https://github.com/MarcSkovMadsen/awesome-streamlit/pulls) "
-    #     "to the [source code](https://github.com/MarcSkovMadsen/awesome-streamlit). "
-    # )
+    st.sidebar.title("Contribute")
+    st.sidebar.info(
+        "This an open source project and you are very welcome to **contribute** your awesome "
+        "comments, questions, resources and apps as "
+        "[issues](https://github.com/MarcSkovMadsen/awesome-streamlit/issues) of or "
+        "[pull requests](https://github.com/MarcSkovMadsen/awesome-streamlit/pulls) "
+        "to the [source code](https://github.com/MarcSkovMadsen/awesome-streamlit). "
+    )
     st.sidebar.title("About App")
     st.sidebar.subheader("NLPJenny")
     st.sidebar.text("Natural Language Processing On the Go")
@@ -56,6 +63,9 @@ def main():
         [aryan chaudhary](https://aryanc55.github.io).
 """
     )
+
+   #st.sidebar.markdown("[![Github](https://github.com/aryanc55/NLPJenny/blob/master/assests/github.png?raw=true)](https://github/aryanc55)")
+    
     
     st.sidebar.markdown("""  [Github](https://github/aryanc55)""") #change all thses three to  to iamge
     st.sidebar.markdown("""  [Twitter](https://github/aryanc55)""")
