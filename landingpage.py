@@ -1,6 +1,5 @@
 """Main module for the streamlit NLPJenny app"""
 import streamlit as st
-import awesome_streamlit as ast 
 
 
 import pages.home
@@ -10,7 +9,6 @@ import pages.nertm
 import pages.machineTranlation
 import pages.textSummarization
 
-#ast.core.services.other.set_logging_format()
 
 PAGES = {
     "Home": pages.home,
@@ -23,30 +21,23 @@ PAGES = {
 
 
 def main():
+    
+    st.sidebar.title("NLPJenny")
+    st.sidebar.text("Natural Language Processing On the Go")
+    
     st.sidebar.title("Navigation")
     page = st.sidebar.radio("Go to", list(PAGES.keys()))
 
-    #page = PAGES[selection]
+    #PAGES[page].main()
 
 
-    #page = st.sidebar.selectbox("Select your page", tuple(pages.keys()))
+    with st.spinner(f"Loading {page} ..."):
+        PAGES[page].main()
+
+        
     
-    PAGES[page].main()
-
-
-    #with st.spinner(f"Loading {selection} ..."):
-        #ast.shared.components.write_page(page)
-    st.sidebar.title("Contribute")
-    st.sidebar.info(
-        "This an open source project and you are very welcome to **contribute** your awesome "
-        "comments, questions, resources and apps as "
-        "[issues](https://github.com/MarcSkovMadsen/awesome-streamlit/issues) of or "
-        "[pull requests](https://github.com/MarcSkovMadsen/awesome-streamlit/pulls) "
-        "to the [source code](https://github.com/MarcSkovMadsen/awesome-streamlit). "
-    )
     st.sidebar.title("About App")
-    st.sidebar.subheader("NLPJenny")
-    st.sidebar.text("Natural Language Processing On the Go")
+    
     st.sidebar.info(
         """
         This App uses State of the Art free tier API's from different paltforms
@@ -75,7 +66,14 @@ def main():
 
 
     
-    
+    st.sidebar.title("Souce Code")
+    st.sidebar.info(
+        "This an open source project and you are very welcome to **contribute** your awesome "
+        "comments, questions, resources and apps as "
+        "[issues](https://github.com/MarcSkovMadsen/awesome-streamlit/issues) of or "
+        "[pull requests](https://github.com/MarcSkovMadsen/awesome-streamlit/pulls) "
+        "to the [source code](https://github.com/MarcSkovMadsen/awesome-streamlit). "
+    )
 
 
 if __name__ == "__main__":
