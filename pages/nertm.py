@@ -1,0 +1,126 @@
+import nltk
+from nltk.stem.porter import PorterStemmer
+from nltk.corpus import stopwords
+from nltk.tokenize import word_tokenize
+from nltk.tokenize import punkt
+from gensim import corpora
+from gensim import models
+import gensim
+import re
+import streamlit as st
+import pandas as pd
+from pages.fetch import *
+import spacy
+from spacy import displacy
+from spacy.lang.en import English
+from textblob import TextBlob
+import sys
+
+
+
+def entity_analyzer(my_text):
+	nlp = spacy.load('en')
+	docx = nlp(my_text)
+	tokens = [token.text for token in docx]
+	entities = [(entity.text, entity.label_)for entity in docx.ents]
+	allData = ['"Token":{},\n"Entities":{}'.format(tokens, entities)]
+	return allData
+
+#Function for named entity recognition
+def ner(my_text):
+    nlp = spacy.load("en_core_web_sm")
+    doc = nlp(my_text)
+    html = displacy.render([doc], style="ent", page=False)
+    #st.write(html, unsafe_allow_html=True)
+    st.markdown(html, unsafe_allow_html=True)
+    st.markdown(" <br> </br>", unsafe_allow_html= True)
+
+    #displacy.serve(doc, style="ent")
+
+
+def process_text(text):
+    stemmer = PorterStemmer()
+    
+   
+    text = re.sub('[^A-Za-z]', ' ', text.lower())
+    tokenized_text = word_tokenize(text)
+    clean_text = [
+        word for word in tokenized_text
+        if word not in stopwords.words('english')
+    ]
+    #gensim.parsing.stem_text(word)
+    
+    #word list only
+    return clean_text
+
+
+
+
+def topic_mod(my_text):
+    
+    nlp = spacy.load("en_core_web_sm")
+    doc = nlp(my_text)
+    
+    
+    text_data = [sent.string.strip() for sent in doc.sents] 
+    #st.write(text_data)
+    
+    texts = [process_text(text) for text in text_data]
+    #st.write(texts)
+    dictionary = corpora.Dictionary(texts)
+    
+    corpus = [dictionary.doc2bow(text) for text in texts]
+    
+    model = models.ldamodel.LdaModel(corpus, num_topics=10, id2word=dictionary, passes=10)
+    topics = model.print_topics(num_words=3)
+    for topic in topics:
+        st.write(topic)
+
+    
+
+    
+
+
+
+
+def main():
+	# Title
+	st.title('Named Entity Recognition and Topic Modelling ')
+
+	if st.checkbox('Show Named Entities', key='ner'):
+		st.subheader('Plot NER')
+		boool, text = selection(key='ner')
+
+		if st.button("Analyze", key='ner'):
+			if boool == 0:
+				message = text
+				ner(message)
+				#st.json(nlp_result)
+
+			else:
+				try:
+					message = get_text(text)
+					ner(message)
+					#st.json(nlp_result)
+				except BaseException as e:
+					st.warning(e)
+
+	if st.checkbox('Show top Topics of the Text', key='topics'):
+		st.subheader('Top topics of your text')
+
+		boool, text = selection(key='topics')
+
+		if st.button("Analyze", key='topcs'):
+			if boool == 0:
+				message = text
+				#function here
+				topic_mod(message)
+			else:
+				try:
+					message = get_text(text)
+					#function here
+					topic_mod(message)
+				except BaseException as e:
+					st.warning(e)
+
+	

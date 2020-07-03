@@ -13,7 +13,7 @@ import pages.textSummarization
 PAGES = {
     "Home": pages.home,
     "Basic NLP": pages.basicNLP,
-    "NER and Topic MOdelling": pages.nertm,
+    "NER and Topic Modelling": pages.nertm,
     "Text Summarization": pages.textSummarization,
     "Machine Translation": pages.machineTranlation,
     "Caption Generator": pages.captionGenerator
