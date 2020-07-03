@@ -6,6 +6,7 @@ from nltk.tokenize import punkt
 from gensim import corpora
 from gensim import models
 import gensim
+import pyLDAvis.gensim
 import re
 import streamlit as st
 import pandas as pd
@@ -56,7 +57,7 @@ def process_text(text):
 
 
 
-def topic_mod(my_text):
+def topic_mod(my_text , num_topics=10,num_words=5):
     
     nlp = spacy.load("en_core_web_sm")
     doc = nlp(my_text)
@@ -71,10 +72,12 @@ def topic_mod(my_text):
     
     corpus = [dictionary.doc2bow(text) for text in texts]
     
-    model = models.ldamodel.LdaModel(corpus, num_topics=10, id2word=dictionary, passes=10)
-    topics = model.print_topics(num_words=3)
+    model = models.ldamodel.LdaModel(corpus, num_topics=num_topics, id2word=dictionary, passes=10)
+    topics = model.print_topics(num_words=num_words)
     for topic in topics:
         st.write(topic)
+    lda_display = pyLDAvis.gensim.prepare(model, corpus, dictionary, sort_topics=True)
+	pyLDAvis.display(lda_display)
 
     
 
@@ -109,17 +112,18 @@ def main():
 		st.subheader('Top topics of your text')
 
 		boool, text = selection(key='topics')
-
+		num_topics=st.number_input('Number of Topics')
+		num_words=st.number_input('Number of Words per Topic')
 		if st.button("Analyze", key='topcs'):
 			if boool == 0:
 				message = text
 				#function here
-				topic_mod(message)
+				topic_mod(message,num_topics,num_words)
 			else:
 				try:
 					message = get_text(text)
 					#function here
-					topic_mod(message)
+					topic_mod(message,num_topics,num_words)
 				except BaseException as e:
 					st.warning(e)
 
