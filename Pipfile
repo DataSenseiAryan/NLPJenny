@@ -22,6 +22,9 @@ google-cloud-translate = "==2.0.1"
 sumy = "*"
 ibm-watson = ">=4.5.0"
 awesome-streamlit = "==20191014.4"
+wordcloud = "*"
+bs4 = "*"
+matplotlib = "*"
 
 [requires]
 python_version = "3.8"

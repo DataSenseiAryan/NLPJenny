@@ -1,7 +1,13 @@
 import streamlit as st
 
 def main():
-	## Title and description
+	## Title and description 
+	# html_temp = """
+	# 	<div style="background-color:blue;padding:10px">
+	# 	<h1 style="color:white;text-align:center;">Streamlit NLP App </h1>
+	# 	</div>
+	# """
+    #st.markdown(html_temp,unsafe_allow_html=True)
 
 	st.title('NLPJenny')
 	st.subheader("Natural Language Processing On the Go..")
