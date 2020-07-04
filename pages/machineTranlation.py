@@ -9,51 +9,64 @@ from sumy.parsers.plaintext import PlaintextParser
 from sumy.nlp.tokenizers import Tokenizer
 from sumy.summarizers.lex_rank import LexRankSummarizer
 import spacy
-#from summarizer import Summarizer as sz
+from googletrans import Translator
 
 
-
+def trans(message,lan):
+    translator = Translator()
+    result = translator.translate(message, dest=lan)
+    st.success(result.text)
 
 def main():
 	# Title
 	front_up()
 
-	st.title('Text Summarization')
+	st.title('Machine Translation')
+ 
+	language = {'af': 'afrikaans', 'sq': 'albanian', 'am': 'amharic', 'ar': 'arabic', 'hy': 'armenian',
+              'az': 'azerbaijani', 'eu': 'basque',
+              'be': 'belarusian', 'bn': 'bengali', 'bs': 'bosnian', 'bg': 'bulgarian', 'ca': 'catalan',
+               'ceb': 'cebuano', 'ny': 'chichewa', 
+              'zh-cn': 'chinese (simplified)', 'zh-tw': 'chinese (traditional)', 'co': 'corsican', 'hr': 'croatian', 'cs': 'czech', 'da': 'danish',
+               'nl': 'dutch', 'en': 'english', 'eo': 'esperanto', 'et': 'estonian', 'tl': 'filipino', 'fi': 'finnish', 'fr': 'french', 'fy': 'frisian', 
+               'gl': 'galician', 'ka': 'georgian', 'de': 'german', 'el': 'greek', 'gu': 'gujarati', 'ht': 'haitian creole', 'ha': 'hausa', 'haw': 'hawaiian',
+                'iw': 'hebrew', 'hi': 'hindi', 'hmn': 'hmong', 'hu': 'hungarian', 'is': 'icelandic', 'ig': 'igbo',
+              'id': 'indonesian', 'ga': 'irish', 'it': 'italian', 'ja': 'japanese', 'jw': 'javanese', 'kn': 'kannada',
+               'kk': 'kazakh', 'km': 'khmer', 'ko': 'korean', 'ku': 'kurdish (kurmanji)',
+             'ky': 'kyrgyz', 'lo': 'lao', 'la': 'latin', 'lv': 'latvian', 'lt': 'lithuanian', 'lb': 'luxembourgish', 'mk': 
+                 'macedonian', 'mg': 'malagasy', 'ms': 'malay', 'ml': 'malayalam', 'mt': 'maltese', 'mi': 'maori', 'mr': 'marathi', 'mn': 'mongolian', 'my': 'myanmar (burmese)', 'ne': 'nepali', 'no': 'norwegian', 'ps': 'pashto', 'fa': 'persian', 'pl': 'polish', 'pt': 'portuguese', 'pa': 'punjabi', 'ro': 'romanian', 'ru': 'russian', 'sm': 'samoan', 'gd': 'scots gaelic', 'sr': 'serbian', 'st': 'sesotho', 'sn': 'shona', 'sd': 'sindhi', 'si': 'sinhala', 'sk': 'slovak', 'sl': 'slovenian', 'so': 'somali', 'es': 'spanish', 'su': 'sundanese', 'sw': 'swahili', 'sv': 'swedish', 'tg': 'tajik', 'ta': 'tamil', 'te': 'telugu', 'th': 'thai', 'tr': 'turkish', 'uk': 'ukrainian', 'ur': 'urdu', 'uz': 'uzbek', 'vi': 'vietnamese', 'cy': 'welsh', 'xh': 'xhosa', 'yi': 'yiddish', 'yo': 'yoruba', 'zu': 'zulu', 'fil': 'Filipino', 'he': 'Hebrew'}
 	 
-	if st.checkbox('Extractive Text Summarisation', key='ts'):
-		st.subheader('Summary based on Extraction')
-		summary_options = st.selectbox("Choose Summarizer", ['sumy', 'gensim'])
-		boool, text = selection(key='ts')
+	if st.checkbox('Translate Using Googletrans', key='trans'):
+		st.subheader('Translate')
+		summary_options = st.selectbox("Choose language", ['arabic','chinese (simplified)', 
+                                        'croatian', 'czech','danish', 'dutch', 'english', 'finnish', 
+                                          'french', 'german', 'greek','hindi','irish', 'italian', 
+                                          'japanese','nepali',  'russian','spanish',  'urdu' ])
+		boool, text = selection(key='trans')
 
-		if st.button("Summarize", key='ts'):
+		if st.button("Translate", key='trans'):
 			if boool == 0:
 				message = text
-				summarizevis(message, summary_options)
+				for abb ,full in language.items():
+						if full == summary_options :
+								temp = abb
+								break
 
-				#st.json(nlp_result)
-
+				#st.write(language[temp])
+				trans(message, language[temp])
+				
 			else:
 				try:
 					message = get_text(text)
-					summarizevis(message, summary_options)
-					#st.json(nlp_result)
-				except BaseException as e:
-					st.warning(e)
+					for abb, full in language.items():
+						if full == summary_options:
+							temp = abb
+							break
 
-	if st.checkbox('Abstractive Text Summarization', key='ats'):
-		st.subheader('Abtract Generation')
-
-		boool, text = selection(key='ats')
-
-		if st.button("Summarize", key='ats'):
-			if boool == 0:
-				message = text
-				bert_sum(message)
-
-			else:
-				try:
-					message = get_text(text)
-					bert_sum(message)
+					#st.write(language[temp])
+					trans(message, language[temp])
 
 				except BaseException as e:
 					st.warning(e)
+
+	

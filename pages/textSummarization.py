@@ -9,7 +9,7 @@ from sumy.parsers.plaintext import PlaintextParser
 from sumy.nlp.tokenizers import Tokenizer
 from sumy.summarizers.lex_rank import LexRankSummarizer
 import spacy
-#from summarizer import Summarizer as sz
+from summarizer import Summarizer as sz
 
 def sumy_summarizer(docx):
 	parser = PlaintextParser.from_string(docx, Tokenizer("english"))
