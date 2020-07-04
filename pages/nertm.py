@@ -4,7 +4,7 @@ from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 from nltk.tokenize import punkt
 from gensim import corpora
-from gensim import models
+from gensim import models 
 import gensim
 import pyLDAvis.gensim
 import re
@@ -16,6 +16,7 @@ from spacy import displacy
 from spacy.lang.en import English
 from textblob import TextBlob
 import sys
+from matplotlib import pyplot as plt
 
 
 
@@ -72,12 +73,16 @@ def topic_mod(my_text , num_topics=10,num_words=5):
     
     corpus = [dictionary.doc2bow(text) for text in texts]
     
-    model = models.ldamodel.LdaModel(corpus, num_topics=num_topics, id2word=dictionary, passes=10)
+    model = models.ldamodel.LdaModel(corpus, num_topics=num_topics, id2word=dictionary, passes=10,random_state =2)
     topics = model.print_topics(num_words=num_words)
     for topic in topics:
         st.write(topic)
-    lda_display = pyLDAvis.gensim.prepare(model, corpus, dictionary, sort_topics=True)
-	pyLDAvis.display(lda_display)
+    
+    
+    #lda_display = pyLDAvis.gensim.prepare(model, corpus, dictionary, sort_topics=True)
+    # st.pyplot(pyLDAvis.display(lda_display))
+    #pyLDAvis.display(lda_display)
+    #plt.show()
 
     
 
@@ -112,8 +117,8 @@ def main():
 		st.subheader('Top topics of your text')
 
 		boool, text = selection(key='topics')
-		num_topics=st.number_input('Number of Topics')
-		num_words=st.number_input('Number of Words per Topic')
+		num_topics=st.number_input('Number of Topics',key='topic',step=1,min_value=1,format = '%d')
+		num_words=st.number_input('Number of Words per Topic' , key='words', format='%d', min_value=1,step=1)
 		if st.button("Analyze", key='topcs'):
 			if boool == 0:
 				message = text
