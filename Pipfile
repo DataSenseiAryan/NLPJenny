@@ -15,6 +15,11 @@ wordcloud = "*"
 bs4 = "*"
 gensim = "*"
 pyldavis = "*"
+bert-extractive-summarizer = "*"
+sumy = "*"
+torchvision = "*"
+tensorflow = "*"
+torch = "*"
 
 [requires]
 python_version = "3.6"

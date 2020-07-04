@@ -93,6 +93,7 @@ def topic_mod(my_text , num_topics=10,num_words=5):
 
 def main():
 	# Title
+	front_up()
 	st.title('Named Entity Recognition and Topic Modelling ')
 
 	if st.checkbox('Show Named Entities', key='ner'):

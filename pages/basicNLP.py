@@ -55,6 +55,7 @@ def word_cloud(my_text):
 
 def main():
 	# Title
+	front_up()
 	st.title('Basic NLP ')
 
 	if st.checkbox('Show Tokens and Lemma', key ='token'):

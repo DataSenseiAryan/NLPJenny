@@ -19,3 +19,25 @@ def selection(key):
 	else:
 		url = st.text_area("Enter URL", "Paste Here ..", key= key+'url')
 		return (1,url)
+
+def front_up():
+    html_temp = """
+		<div style="background-color:#ff1a75;padding:10px">
+		<h1 style="color:white;text-align:center;">NLPJenny</h1>
+		<h4 style="color:white;text-align:center;">Natural Language Processing On the Go...</h4>
+		</div>
+		<br></br>
+		<br></br>
+	"""
+    st.markdown(html_temp,unsafe_allow_html=True)
+
+
+def front_down():
+    #closing remarks
+    pass
+
+
+
+def contact():
+    pass    
+	#st.markdown(html,unsafe_allow_html=True)

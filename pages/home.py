@@ -1,4 +1,5 @@
 import streamlit as st
+from pages.fetch import*
 
 def main():
 	## Title and description 
@@ -8,9 +9,9 @@ def main():
 	# 	</div>
 	# """
     #st.markdown(html_temp,unsafe_allow_html=True)
-
-	st.title('NLPJenny')
-	st.subheader("Natural Language Processing On the Go..")
+	front_up()
+	# st.title('NLPJenny')
+	# st.subheader("Natural Language Processing On the Go...")
 	st.markdown("""
 			
 			 This is a Natural Language Processing(NLP) Based App useful for basic NLP task
