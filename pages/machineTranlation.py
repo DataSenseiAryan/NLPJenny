@@ -42,10 +42,10 @@ def main():
                                         'croatian', 'czech','danish', 'dutch', 'english', 'finnish', 
                                           'french', 'german', 'greek','hindi','irish', 'italian', 
                                           'japanese','nepali',  'russian','spanish',  'urdu' ])
-		boool, text = selection(key='trans')
+		text =st.text_input('Enter text')
 
 		if st.button("Translate", key='trans'):
-			if boool == 0:
+			
 				message = text
 				for abb ,full in language.items():
 						if full == summary_options :
@@ -55,18 +55,5 @@ def main():
 				#st.write(language[temp])
 				trans(message, language[temp])
 				
-			else:
-				try:
-					message = get_text(text)
-					for abb, full in language.items():
-						if full == summary_options:
-							temp = abb
-							break
-
-					#st.write(language[temp])
-					trans(message, language[temp])
-
-				except BaseException as e:
-					st.warning(e)
 
 	
