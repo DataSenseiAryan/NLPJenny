@@ -19,8 +19,11 @@ May be down by now!
 ## How to RUN:
 - Run 
    > git clone https://github.com/aryanc55/NLPJenny.git
+   
    > cd NLPJenny
+   
    > pip install -r requirement.txt
+   
    > streamlit run NLPJenny.py
 
 
