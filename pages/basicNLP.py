@@ -3,8 +3,6 @@ import pandas as pd
 from pages.fetch import *
 import spacy
 from spacy.lang.en import English
-from spacy import load
-import en_core_web_sm
 from textblob import TextBlob
 import sys
 from wordcloud import WordCloud, STOPWORDS, ImageColorGenerator
@@ -18,7 +16,7 @@ import matplotlib.pyplot as plt
 # Function to Analyse Tokens and Lemma
 @st.cache
 def text_analyzer(my_text):
-	nlp = en_core_web_sm.load()
+	nlp = spacy.load('en_core_web_sm')
 	docx = nlp(my_text)
 	
 	allData = [('"Token":{},\n"Lemma":{}'.format(token.text,token.lemma_))for token in docx ]
@@ -28,7 +26,7 @@ def text_analyzer(my_text):
 @st.cache
 def pos_tagging(my_text):
 	data ={}
-	nlp = en_core_web_sm.load()
+	nlp = spacy.load('en_core_web_sm')
 	doc = nlp(my_text)
 	
 	c_tokens = [token.text for token in doc]
