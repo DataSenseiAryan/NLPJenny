@@ -4,7 +4,7 @@
 
 #### Hosted on Heroku: [NLPJenny](https://nlpjenny.herokuapp.com/)
 
-- Website will launch very slow as in free tier heroku services the server goes into hibernation i.e. everytime a use clicks the website it lauches itself from scratch and remains active for next few minutes. Also there is bug in integration between heroku and spacy model which requires to download spacy language model everytime the website launches.May be down by now!
+- Website will launch very slow as in free tier heroku services the server goes into hibernation i.e. everytime a user clicks the website it lauches itself from scratch and remains active for next few minutes. Also there is a bug in integration between heroku and spacy model, while deploying, which requires to download spacy language model everytime the website launches itself.May be down by now!
 
 
 #### Youtube Video: [Streamlit NLPJenny](https://youtu.be/XGpYs5mbgQ8)
