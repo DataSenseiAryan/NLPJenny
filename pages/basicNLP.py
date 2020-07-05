@@ -1,13 +1,14 @@
 import streamlit as st
 import pandas as pd 
 from pages.fetch import *
-import spacy
-from spacy.lang.en import English
+
 from textblob import TextBlob
 import sys
 from wordcloud import WordCloud, STOPWORDS, ImageColorGenerator
 from PIL import Image
 import matplotlib.pyplot as plt
+import spacy
+
 import en_core_web_sm
 from spacy import load
 

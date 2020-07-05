@@ -11,13 +11,12 @@ import re
 import streamlit as st
 import pandas as pd
 from pages.fetch import *
-import spacy
-from spacy import displacy
-from spacy.lang.en import English
 from textblob import TextBlob
 import sys
 from matplotlib import pyplot as plt
 
+import spacy
+from spacy import displacy
 import en_core_web_sm
 from spacy import load
 
