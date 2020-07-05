@@ -3,11 +3,14 @@
 **Natural Language Processing on the go...**
 
 #### Hosted on Heroku: [NLPJenny](https://nlpjenny.herokuapp.com/)
-May be down by now!
+
+- Website will launch very slow as in free tier heroku services the server goes into hibernation i.e. everytime a use clicks the website it lauches itself from scratch and remains active for next few minutes. Also there is bug in integration between heroku and spacy model which requires to download spacy language model everytime the website launches.May be down by now!
+
 
 #### Youtube Video: [Streamlit NLPJenny](https://youtu.be/XGpYs5mbgQ8)
 
-![Image]('')
+
+![demo image]('https://github.com/aryanc55/NLPJenny/blob/master/demo.png')
 
 
 
@@ -26,6 +29,21 @@ May be down by now!
    
    > streamlit run NLPJenny.py
 
+## Deploy on Heroku
+- Make account on heroku and install heroku-cli
+   
+   > sudo snap install --classic heroku
+   
+-RUN
+   
+   > cd /to_dir
+   
+   > heroku login
+   
+   > heroku create your_app_name
+   
+   > git push heroku master
+   
 
 ## License:
 MIT License
