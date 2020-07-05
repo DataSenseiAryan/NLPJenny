@@ -29,7 +29,7 @@ May be down by now!
 
 ## License:
 MIT License
-Copyright (c) 2019 Aryan Chaudhary
+Copyright (c) 2020 Aryan Chaudhary
 [MIT](LICENSE)
 
 **Show some :heart: by leaving a :star: at this page!**  </br>
