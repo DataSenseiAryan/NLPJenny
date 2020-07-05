@@ -18,6 +18,8 @@ from textblob import TextBlob
 import sys
 from matplotlib import pyplot as plt
 
+from spacy import load
+import en_core_web_sm
 
 
 def entity_analyzer(my_text):
@@ -30,7 +32,7 @@ def entity_analyzer(my_text):
 
 #Function for named entity recognition
 def ner(my_text):
-    nlp = spacy.load("en_core_web_sm")
+    nlp = en_core_web_sm.load()
     doc = nlp(my_text)
     html = displacy.render([doc], style="ent", page=False)
     #st.write(html, unsafe_allow_html=True)
@@ -60,7 +62,7 @@ def process_text(text):
 
 def topic_mod(my_text , num_topics=10,num_words=5):
     
-    nlp = spacy.load("en_core_web_sm")
+    nlp = en_core_web_sm.load()
     doc = nlp(my_text)
     
     

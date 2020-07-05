@@ -3,12 +3,6 @@ import re
 import streamlit as st
 from pages.fetch import *
 import sys
-from gensim.summarization.summarizer import summarize
-
-from sumy.parsers.plaintext import PlaintextParser
-from sumy.nlp.tokenizers import Tokenizer
-from sumy.summarizers.lex_rank import LexRankSummarizer
-import spacy
 from googletrans import Translator
 
 
