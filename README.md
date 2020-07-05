@@ -10,7 +10,7 @@
 #### Youtube Video: [Streamlit NLPJenny](https://youtu.be/XGpYs5mbgQ8)
 
 
-![demo image]('https://github.com/aryanc55/NLPJenny/blob/master/demo.png?raw=true')
+![demo image](https://github.com/aryanc55/NLPJenny/blob/master/demo.png?raw=true)
 
 
 
