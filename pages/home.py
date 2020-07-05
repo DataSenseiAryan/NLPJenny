@@ -14,7 +14,7 @@ def main():
 	st.header('Features')
 
 	st.markdown("""
-			#### Basic NLP Taks:
+			#### Basic NLP Tasks:
 			+ App covers the most basic NLP task of tokenisation, parts of speech tagging.
 				You can paste the desired content or may directly pass the url for the text.
 			#### Named Entity Recognition and Topic Modelling:
