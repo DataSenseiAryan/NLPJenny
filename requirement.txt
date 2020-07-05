@@ -128,6 +128,9 @@ spacy==2.3.0
 srsly==1.0.2
 streamlit==0.62.1
 sumy==0.8.1
+tensorboard==2.2.2
+tensorboard-plugin-wit==1.7.0
+tensorflow-estimator==2.2.0
 termcolor==1.1.0
 terminado==0.8.3
 testpath==0.4.4
