@@ -15,7 +15,6 @@ bs4 = "*"
 gensim = "*"
 pyldavis = "*"
 sumy = "*"
-torchvision = "*"
 googletrans = "*"
 nltk = "*"
 

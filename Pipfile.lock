@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "db808e40bf4e889a7613d9e54d25eeceaf0cb7de6cffb82d0b32a55d331a059f"
+            "sha256": "b6e694a40a5a0d33d316687518a35555ba0d4f0ec7a4ff921e200cce01c749f1"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -1162,33 +1162,6 @@
                 "sha256:08fdd5ef7c96480ad11c12d472de21acd32359996f69a5259299b540feba4560"
             ],
             "version": "==0.10.0"
-        },
-        "torch": {
-            "hashes": [
-                "sha256:0a83f41140222c7cc947aa29ed253f3e6fa490606d3d4acd02bfd9f338e3c707",
-                "sha256:5d909a55cd979fec2c9a7aa35012024b9cc106acbc496faf5de798b148406450",
-                "sha256:70046cf66eb40ead89df25b8dcc571c3007fc9849d4e1d254cc09b4b355374d4",
-                "sha256:a358cee1d35b86757bf915e320ba776d39c20e60db50779060842efc86f02edd",
-                "sha256:b84fd18fd8216b74a19828433c3beeb1f0d1d29f45dead3be9ed784ae6855966",
-                "sha256:bb2a3e6c9c9dbfda856bd1b1a55d88789a9488b569ffba9cd6d9aa536ef866ba",
-                "sha256:c42658f2982591dc4d0459645c9ab26e0ce18aa7ab0993c27c8bcb1c98931d11",
-                "sha256:ff1dbeaa017bae66036e8e7a698a5475ac5a0d7b0a690f0a04ac3b1133b1feb3"
-            ],
-            "version": "==1.5.1"
-        },
-        "torchvision": {
-            "hashes": [
-                "sha256:3af59c61d20bb0bb63dbd50f324fcd975fc5b89fb78e6b5714ae613cd7b734cc",
-                "sha256:52be3710bf495fee9eb8f1cb4d310edd2da94b127b2ca0aa77075c1001bcbb91",
-                "sha256:80a8beaa3416035c9640d153b1f0a7c9b09aac8037a032bbc33fd4bc8657b091",
-                "sha256:9a544f241e1df7485c1fda64f06af4962ad4af1da6caeda352757ea800dd794d",
-                "sha256:b07e7c5a7274082a8bbe88975c817da10bffaf4020017347d185b5d4eacb891d",
-                "sha256:c122386a4604a6b611626d817981777bb06e747161a4954e4037c2e297fe1d86",
-                "sha256:c44819c3c903f2d6d269713a9aa81a9dcb0ab7716b4fc4dbdccf596e6fe894c9",
-                "sha256:eb6d7ef73ab8ed756d18c1c11ead3ba1be7b3e2fe5bf475e16a4426d7f3d6eec"
-            ],
-            "index": "pypi",
-            "version": "==0.6.1"
         },
         "tornado": {
             "hashes": [
