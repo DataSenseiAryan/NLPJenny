@@ -10,7 +10,7 @@
 #### Youtube Video: [Streamlit NLPJenny](https://youtu.be/XGpYs5mbgQ8)
 
 
-![demo image]('https://github.com/aryanc55/NLPJenny/blob/master/demo.png')
+![demo image]('https://github.com/aryanc55/NLPJenny/blob/master/demo.png?raw=true')
 
 
 
@@ -34,7 +34,7 @@
    
    > sudo snap install --classic heroku
    
--RUN
+- RUN
    
    > cd /to_dir
    
