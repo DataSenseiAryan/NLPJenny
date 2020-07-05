@@ -18,7 +18,6 @@ pyldavis = "*"
 bert-extractive-summarizer = "*"
 sumy = "*"
 torchvision = "*"
-tensorflow = "*"
 torch = "*"
 googletrans = "*"
 
