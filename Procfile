@@ -1,1 +1,1 @@
-web: python -m spacy download en_core_web_md && sh setup.sh && streamlit run NLPJenny.py
+web: sh setup.sh && streamlit run NLPJenny.py
