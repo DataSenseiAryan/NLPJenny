@@ -8,7 +8,6 @@ verify_ssl = true
 [packages]
 streamlit = "*"
 spacy = "*"
-nltk = "*"
 textblob = "*"
 matplotlib = "*"
 wordcloud = "*"
@@ -18,6 +17,7 @@ pyldavis = "*"
 sumy = "*"
 torchvision = "*"
 googletrans = "*"
+nltk = "*"
 
 [requires]
 python_version = "3.6"
