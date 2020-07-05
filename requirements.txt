@@ -1,7 +1,6 @@
 streamlit==0.62.1
 spacy==2.3.0
-#en-core-web-sm @ https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-2.3.0/
-https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-2.3.0/en_core_web_sm-2.3.0.tar.gz
+en-core-web-sm @ https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-2.3.0/en_core_web_sm-2.3.0.tar.gz
 textblob==0.15.3
 matplotlib = "*"
 wordcloud ==1.7.0
