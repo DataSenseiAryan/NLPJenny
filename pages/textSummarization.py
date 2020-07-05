@@ -9,7 +9,7 @@ from sumy.parsers.plaintext import PlaintextParser
 from sumy.nlp.tokenizers import Tokenizer
 from sumy.summarizers.lex_rank import LexRankSummarizer
 import spacy
-from summarizer import Summarizer as sz
+#from summarizer import Summarizer as sz
 
 def sumy_summarizer(docx):
 	parser = PlaintextParser.from_string(docx, Tokenizer("english"))
@@ -27,11 +27,11 @@ def gensim_summarizer(my_text):
     # #text_data = [sent.string.strip() for sent in doc.sents]
     return summarize(my_text)
 
-def bert_sum(message):
-    model = sz()
-    result = model(message, min_length=60)
-    full = ''.join(result)
-    st.success(full) 
+# def bert_sum(message):
+#     model = sz()
+#     result = model(message, min_length=60)
+#     full = ''.join(result)
+#     st.success(full) 
      
 
 
@@ -77,23 +77,23 @@ def main():
 				except BaseException as e:
 					st.warning(e)
 
-	if st.checkbox('Abstractive Text Summarization', key='ats'):
-		st.subheader('Abtract Generation')
+	# if st.checkbox('Abstractive Text Summarization', key='ats'):
+	# 	st.subheader('Abtract Generation')
 
-		boool, text = selection(key='ats')
+	# 	boool, text = selection(key='ats')
 		
-		if st.button("Summarize", key='ats'):
-			if boool == 0:
-				message = text
-				bert_sum(message)
+	# 	if st.button("Summarize", key='ats'):
+	# 		if boool == 0:
+	# 			message = text
+	# 			bert_sum(message)
 				
-			else:
-				try:
-					message = get_text(text)
-					bert_sum(message)
+	# 		else:
+	# 			try:
+	# 				message = get_text(text)
+	# 				bert_sum(message)
      
 					
-				except BaseException as e:
-					st.warning(e)
+	# 			except BaseException as e:
+	# 				st.warning(e)
 
 	
